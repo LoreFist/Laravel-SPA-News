@@ -7,14 +7,10 @@
 
 `composer update`
 
-`npm install`
-
-`npm run watch`
-
 `php artisan migrate`
 
 `php artisan db:seed`
 
-`npm install laravel-vue-pagination`
+`npm install`
 
-`npm install vue vue-router vuetify`
+`npm run watch`
