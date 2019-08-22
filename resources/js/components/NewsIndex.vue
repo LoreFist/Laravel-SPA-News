@@ -3,7 +3,6 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item active" aria-current="page">News</li>
-                <li class="breadcrumb-item">Category</li>
             </ol>
         </nav>
         <div class="form-group">

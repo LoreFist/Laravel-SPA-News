@@ -1,15 +1,15 @@
 <template>
     <div>
-        <div class="form-group">
-            <router-link to="/" class="btn btn-default">Back</router-link>
-        </div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <router-link :to="{name: 'NewsIndex'}">News</router-link>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">News Edit</li>
+            </ol>
+        </nav>
 
         <div class="col-md-12">
-            <div class="row">
-                <div class="col-md-12">
-                    <span>Edit new post </span>
-                </div>
-            </div>
             <div class="row">
                 <form v-on:submit="saveForm()">
                     <div class="row">
@@ -48,7 +48,7 @@
 <script>
     export default {
         props: [
-            'filters', 'categories'
+            'filters'
         ],
         data: function () {
             return {
@@ -66,7 +66,6 @@
                     app.categories = resp.data.categories;
                 })
                 .catch(function () {
-                    alert("no load news")
                 });
         },
         methods: {
@@ -79,8 +78,7 @@
                         app.$router.replace('/');
                     })
                     .catch(function (resp) {
-                        console.log(resp);
-                        alert("no save news");
+                        console.log(resp)
                     });
             }
         }

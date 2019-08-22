@@ -1,8 +1,13 @@
 <template>
     <div>
-        <div class="form-group">
-            <router-link to="/" class="btn btn-default">Back</router-link>
-        </div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <router-link :to="{name: 'NewsIndex'}">News</router-link>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">News Create</li>
+            </ol>
+        </nav>
 
         <div class="panel panel-default">
             <div class="panel-heading">Create new post</div>

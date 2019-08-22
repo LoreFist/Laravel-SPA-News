@@ -1862,6 +1862,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1959,7 +1964,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['filters', 'categories'],
+  props: ['filters'],
   data: function data() {
     return {
       news: {},
@@ -1973,9 +1978,7 @@ __webpack_require__.r(__webpack_exports__);
     axios.get('/api/v1/news/' + id).then(function (resp) {
       app.news = resp.data.news;
       app.categories = resp.data.categories;
-    })["catch"](function () {
-      alert("no load news");
-    });
+    })["catch"](function () {});
   },
   methods: {
     saveForm: function saveForm() {
@@ -1986,7 +1989,6 @@ __webpack_require__.r(__webpack_exports__);
         app.$router.replace('/');
       })["catch"](function (resp) {
         console.log(resp);
-        alert("no save news");
       });
     }
   }
@@ -2003,7 +2005,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -6592,7 +6593,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\na:hover {\n    text-decoration: none;\n}\n\n.post {\n    border-bottom: 1px solid #DDD;\n    margin-bottom: 40px;\n}\n\n.featured {\n    background-color: rgba(254, 198, 6, 0.1);\n}\n\n.glyphicon {\n    margin-right: 5px;\n}\n\n.post-title {\n    color: #3498db;\n}\n\n.post-header-line {\n    border-top: 1px solid #DDD;\n    border-bottom: 1px solid #DDD;\n    padding: 5px 0px 5px 15px;\n    font-size: 12px;\n}\n\n.post-content {\n    padding-bottom: 15px;\n    padding-top: 15px;\n}\n\n.separator {\n    margin-right: 8px;\n}\n\n:before {\n    content: \"|\";\n    margin-left: 8px;\n}\n\n", ""]);
+exports.push([module.i, "\na:hover {\n    text-decoration: none;\n}\n\n.post {\n    border-bottom: 1px solid #DDD;\n    margin-bottom: 40px;\n}\n\n.featured {\n    background-color: rgba(254, 198, 6, 0.1);\n}\n\n.glyphicon {\n    margin-right: 5px;\n}\n\n.post-title {\n    color: #3498db;\n}\n\n.post-header-line {\n    border-top: 1px solid #DDD;\n    border-bottom: 1px solid #DDD;\n    padding: 5px 0px 5px 15px;\n    font-size: 12px;\n}\n\n.post-content {\n    padding-bottom: 15px;\n    padding-top: 15px;\n}\n\n.separator {\n    margin-right: 8px;\n}\n\n:before {\n    margin-left: 8px;\n}\n\n", ""]);
 
 // exports
 
@@ -57203,18 +57204,29 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "div",
-      { staticClass: "form-group" },
-      [
+    _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
+      _c("ol", { staticClass: "breadcrumb" }, [
         _c(
-          "router-link",
-          { staticClass: "btn btn-default", attrs: { to: "/" } },
-          [_vm._v("Back")]
+          "li",
+          { staticClass: "breadcrumb-item" },
+          [
+            _c("router-link", { attrs: { to: { name: "NewsIndex" } } }, [
+              _vm._v("News")
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          {
+            staticClass: "breadcrumb-item active",
+            attrs: { "aria-current": "page" }
+          },
+          [_vm._v("News Create")]
         )
-      ],
-      1
-    ),
+      ])
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "panel panel-default" }, [
       _c("div", { staticClass: "panel-heading" }, [_vm._v("Create new post")]),
@@ -57406,22 +57418,31 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "div",
-      { staticClass: "form-group" },
-      [
+    _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
+      _c("ol", { staticClass: "breadcrumb" }, [
         _c(
-          "router-link",
-          { staticClass: "btn btn-default", attrs: { to: "/" } },
-          [_vm._v("Back")]
+          "li",
+          { staticClass: "breadcrumb-item" },
+          [
+            _c("router-link", { attrs: { to: { name: "NewsIndex" } } }, [
+              _vm._v("News")
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          {
+            staticClass: "breadcrumb-item active",
+            attrs: { "aria-current": "page" }
+          },
+          [_vm._v("News Edit")]
         )
-      ],
-      1
-    ),
+      ])
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "col-md-12" }, [
-      _vm._m(0),
-      _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c(
           "form",
@@ -57550,7 +57571,7 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(1)
+            _vm._m(0)
           ]
         )
       ])
@@ -57558,16 +57579,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("span", [_vm._v("Edit new post ")])
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -57733,9 +57744,7 @@ var staticRenderFns = [
             attrs: { "aria-current": "page" }
           },
           [_vm._v("News")]
-        ),
-        _vm._v(" "),
-        _c("li", { staticClass: "breadcrumb-item" }, [_vm._v("Category")])
+        )
       ])
     ])
   }
