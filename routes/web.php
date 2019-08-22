@@ -11,3 +11,4 @@
 |
 */
 
+Route::get('/', 'NewsController@index')->name('news.index');
