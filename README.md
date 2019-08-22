@@ -11,5 +11,10 @@
 
 `npm run watch`
 
-`php artisan migrate
-`
+`php artisan migrate`
+
+`php artisan db:seed`
+
+`npm install laravel-vue-pagination`
+
+`npm install vue vue-router vuetify`
