@@ -1,0 +1,43 @@
+
+a:hover {
+    text-decoration: none;
+}
+
+.post {
+    border-bottom: 1px solid #DDD;
+    margin-bottom: 40px;
+}
+
+.featured {
+    background-color: rgba(254, 198, 6, 0.1);
+}
+
+.glyphicon {
+    margin-right: 5px;
+}
+
+.post-title {
+    color: #3498db;
+}
+
+.post-header-line {
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    padding: 5px 0px 5px 15px;
+    font-size: 12px;
+}
+
+.post-content {
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.separator {
+    margin-right: 8px;
+}
+
+:before {
+    content: "|";
+    margin-left: 8px;
+}
+

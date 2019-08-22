@@ -1,28 +1,27 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
 
 window.Vue = require('vue');
-
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+import VueRouter from 'vue-router';
+window.moment = require('moment');
 
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+Vue.component('pagination', require('laravel-vue-pagination'));
 
+window.Vue.use(VueRouter);
+window.Vue.use('vue-moment');
+
+import NewsIndex from './components/NewsIndex.vue';
+import NewsCreate from './components/NewsCreate.vue';
+import NewsEdit from './components/NewsEdit.vue';
+import Category from './components/Category.vue';
+
+const routes = [
+    {path: '/', component: NewsIndex, name: 'NewsIndex'},
+    {path: '/news/create', component: NewsCreate, name: 'createNews'},
+    {path: '/news/edit/:id', component: NewsEdit, name: 'editNews'},
+    {path: '/category/show/:id', component: Category, name: 'category', props: true},
+]
+
+const router = new VueRouter({routes})
+
+const app = new Vue({router}).$mount('#app')
